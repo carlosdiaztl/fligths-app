@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$myFont: roboto;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mains{
+    
+    background-color:rgba(212, 208, 208, 0.486) ;
+    height: 100vh;
+    font-family:$myFont ;
+    padding: 0px 4%;
+    display: flex;
+    
+}
+.aside{
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    gap: 40px;
+    background-color:rgba(212, 208, 208, 0.486) ;
+    &_section1{
+        height: 35%;
+        background-color: white;
+        border-radius: 10px;
+    }
+    &_span2{
+        display: flex;
+    }
+    &_span3{
+        display: flex;
+        gap: 40%;
+    }
+    &_p{
+        font-size: 10px;
+    }
+    &_section2{
+        border-radius: 10px;
+        height: 35%;
+        background-color: white;
+    }
+}
+.vuelos{
+    width: 100%;
+    height: 100%;
+    &_span{
+        display: flex;
+        gap: 10px;
+    }
+    h3{
+        margin-top: 20px;
+    }
+    &_h4{
+        margin-top: 20px;
+    }
+    &_container{
+        padding-right: 20px;
+        border-radius: 10px;
+        width: 100%;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        div {
+            border-radius: 10px;
+            height: 100%;
+            max-height: 100px;
+            display: flex;
+            background-color:rgba(255, 255, 255, 0.678);
+            justify-content: space-around;
+        }
+    }
+   
+}

@@ -1,0 +1,338 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+$myFont: roboto;
+$paddinlef:10px;
+.main{
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    min-height: 450px;
+    z-index: 1;
+    order: 1;
+    margin-bottom: -50px;
+    &_h21{
+        font-family: $myFont;
+    }
+    &_pagoseguro{
+        position: absolute;
+        bottom: 17%;
+        left: 2.7%;
+        width: 94.5%;
+        border-radius: 5px;
+        font-family: $myFont;
+        font-size: 10px;
+    }
+    &_divs{
+        display: flex;
+        width: 99%;
+        height: 100%;
+        margin-top: 10px;
+        background-color: white;
+        padding-right: 5px;
+        justify-content: space-between;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+        box-shadow: 1px 0.5px 2px;
+        
+        
+    }
+    &_SectionFooterI{
+        margin-left: 4%;
+        width: 46%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        
+        & p{
+            font-size: 9.5px;
+            font-family: $myFont;
+        }
+        & figure{display: flex;
+            gap: 12px;
+            margin-top: 5px;
+           
+        }
+        & img{
+            width: 40px;
+            height: 23px;
+        }
+
+    }
+    &_SectionFooterD{
+        border-radius: 5px;
+        margin-left: 2%;
+        width: 44%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        & figure{
+            margin-top: 5px;
+            display: flex;
+            gap: 12px;
+        }
+        & img{
+            width: 40px;
+            height: 23px;
+        }
+        & p{
+            font-size: 9.5px;
+            font-family: $myFont;
+        }
+
+    }
+    &_img{
+        position: absolute;
+        object-fit: cover;
+        width: 80%;
+        height: 60%;
+        right: 20px;
+        border-radius: 20px;
+
+    }
+    &_viajes{
+        background-color: rgb(231, 225, 225);
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        top: 4.58%;
+        left: 2.7%;
+        border-radius: 20px;
+        z-index: 5;
+        
+    }
+    &_h2{
+        padding-left: $paddinlef;
+        font-family: $myFont;
+        text-align: left;
+         margin-top: 8px;
+         font-size: 15px;
+         
+        
+    }
+    &_h6{
+        padding-left: $paddinlef;
+        font-family: $myFont;
+        font-size: 7px;margin-top: 8px;
+        color: rgba(34, 32, 32, 0.425);
+       
+       
+       
+    }
+    &_span{
+        display: flex;
+        width: 40%;
+        margin-left: $paddinlef;
+        font-family: $myFont;
+        border: solid 1px;
+        border-color: rgb(165, 164, 164);
+        border-radius: 4px;
+        margin-top: 11px;
+        
+        
+       
+        
+        & button{
+            border: none;
+            border-radius: 2px;
+            width: 50%;
+            font-size: 7px;
+            margin: 1px 2px;
+            align-content: center;
+           
+          
+            
+        }
+        & button:hover{
+            background-color: rgba(128, 0, 111, 0.829);
+            color: white;
+              
+          }
+
+    }
+    &_form{
+        margin-top: 11px;
+        margin-left: 3%;
+        width: 95%;
+        height: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3%;
+        justify-content: center;
+       
+
+        
+        &_span{
+            background-color:rgba(255, 255, 255, 0.425);
+            width: 47%;
+            height: 25%;
+            display: flex;
+            flex-direction:column-reverse;
+            align-items: center;
+            justify-content: center;
+            border: solid 1px;
+            border-color: rgb(165, 164, 164);
+            border-radius: 4px;
+            
+            
+            & h6{
+                font-family: $myFont;
+                font-size: 8px;
+                color: rgba(34, 32, 32, 0.425);
+                
+            }
+            
+            & select {
+                text-align: center;
+                border: none;
+                background-color: transparent;
+                -webkit-appearance: none;
+                
+               & option{
+                
+                font-family: $myFont;
+               }
+
+                
+            }
+        }
+        &_spancitos{
+            background-color:rgba(255, 255, 255, 0.425);
+            border: solid 1px;
+            border-color: rgb(165, 164, 164);
+            width: 47%;
+            height: 14%;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: -5px;
+            section {
+                display: flex;
+            }
+            & h6{
+                font-family: $myFont;
+                color: rgba(34, 32, 32, 0.425);
+                font-size: 5.5px;
+                border-radius: 5px;
+                margin-left: 5px;
+                
+            }
+            & input{
+                border: none;
+                background-color: transparent;
+                width: 100px;
+                height: 12px;
+                font-size: 10px;
+                font-family: $myFont;
+            }
+            
+            & select {
+                border: none;
+                background-color: transparent;
+                
+                font-size: 10px;
+              
+                
+               & option{
+                
+                font-family: $myFont;
+             
+            
+               }
+
+                
+            }
+            
+            
+        }
+        & button{
+            border-radius: 10px;
+            width: 100%;
+            border: none;
+            height: 13%;
+            font-size: 8px;
+            margin: 1px 2px;
+            align-content: center;
+            background-color: rgba(255, 255, 255, 0.425);
+            border: solid 1px;
+            border-color: rgb(165, 164, 164);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+        }
+        & button:hover{
+            background-color: rgba(128, 0, 111, 0.829);
+            color: white;
+              
+          }
+    }
+
+
+
+}
+.SectionFooter{
+    background-color: chocolate;
+    width: 100%;
+}
+footer{
+    z-index: 50;
+    order: 50;
+    margin-left: 3%;
+    margin-right: 3%;
+    & h2{
+        font-family: $myFont;
+        font-size: 16px;
+    }
+    & div{
+        display: flex;
+        gap: 4.3%;
+        
+        & section{
+            display: flex;
+            flex-direction: column;
+            width: 18%;
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+            box-shadow: 1px 0.5px 3px;
+            & img{
+                width: 40%;
+                margin-top: 20px;
+                background-color: transparent;
+            }
+            & h3{
+                font-size: 50%;
+                font-family: $myFont;
+                margin-top: 5px;
+                margin-bottom: 4px;
+            }
+            & p{
+                text-align: center;
+                font-size: 32%;
+                font-family: $myFont;
+                color: grey;
+                margin-bottom: 20px;
+                padding: 0px 5px;
+            }
+        }
+    }
+}
+.main{
+    width: 100%;
+    height: 80vh;
+    font-family:$myFont ;
+    
+}
