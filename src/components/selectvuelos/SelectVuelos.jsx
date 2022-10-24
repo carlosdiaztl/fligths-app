@@ -88,7 +88,7 @@ const SelectVuelos = () => {
            
 
             
-              <span className="aside_span3">
+              <span  key={index} className="aside_span3">
                 {" "}
                 <p>
                   {" "}
