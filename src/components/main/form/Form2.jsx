@@ -7,7 +7,7 @@ import { useNavigate} from "react-router-dom";
 
 const Form2 = () => {
   const navigate = useNavigate()
-  let listaDestinos=['cartagena','medellin','cali','monteria']
+  let listaDestinos=['Cartagena','Medellin','Cali','Monteria']
   const [dataForm, handleChangeInput] = useForm({
     origen: "",
     destino: "",

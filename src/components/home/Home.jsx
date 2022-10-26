@@ -10,7 +10,7 @@ const Home = () => {
     <>
     <Mainvuelo
     />
-    <Outlet  />
+    <Outlet />
     </>
   )
 }

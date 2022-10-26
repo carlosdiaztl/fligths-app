@@ -45,6 +45,12 @@ $myFont: roboto;
 .vuelos{
     width: 100%;
     height: 100%;
+    &_section{
+        width: 55%;
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+    }
     &_span{
         display: flex;
         gap: 10px;
@@ -63,6 +69,7 @@ $myFont: roboto;
         display: flex;
         flex-direction: column;
         gap: 10px;
+       
         div {
             border-radius: 10px;
             height: 100%;

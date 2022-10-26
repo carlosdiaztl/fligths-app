@@ -5,7 +5,9 @@ import { searchFligths } from "../../services/getflight";
 import "../selectvuelos/style.scss";
 
 const SelectVuelos = () => {
-  const [vuelos, setVuelo] = useState({});
+
+  const [vuelos, setVuelo] = useState({}||vuelos)
+  const [costo, setcosto] = useState(0)
   const flyes = JSON.parse(sessionStorage.getItem("vuelos"));
   console.log(flyes);
   const vueloIda = JSON.parse(sessionStorage.getItem("vueloIda"));
@@ -16,6 +18,45 @@ const SelectVuelos = () => {
     const flyes = JSON.parse(sessionStorage.getItem("vuelos"));
     console.log(flyes);
   }, []);
+  const getVuelo=(item)=>{
+    console.log(item);
+    setVuelo(item)
+
+  }
+ 
+ const  changevalue=(value)=>{
+  if (value === '1') {
+    console.log(500);
+    setcosto(500)
+    
+  }
+  if (value === '2') {
+    console.log(700);
+    setcosto(700)
+  }
+  if (value === '3') {
+    console.log(1000);
+    setcosto(1000)
+    
+  }
+
+ }
+
+ const goAsientos=()=>{
+  const precioFinal=(vuelos.costo + costo)*Number(vueloIda.pasajeros)
+  
+  if (precioFinal) {
+    
+    console.log('borrando session');
+    console.log('cargar session');
+    console.log('cargar yendo a select asientos');
+    
+    
+  }else{
+    console.log('selecione vuelo y maleta');
+  }
+ 
+ }
 
   return (
     <div className="mains">
@@ -35,37 +76,37 @@ const SelectVuelos = () => {
           {flyes.map((item, index) => (
             <>
 
-            <div key={index}>
-              <section className="vuelos_section">
+            <div   >
+              <section onClick={()=>{getVuelo(item)} } key={index} className="vuelos_section">
                 {" "}
                 <p>
                   {" "}
-                  <strong> {item.departureTime} </strong>
+                  <strong> {item.departureTime}pm </strong>
                 </p>
-                ○-----○{" "}
+                ○---2h--○{" "}
                 <p>
                   {" "}
-                  <strong>{item.arriveTime}</strong>
+                  <strong>{item.departureTime+2}pm</strong>
                 </p>
               </section>
-              <section className="vuelos_sections">
+              <button onClick={()=>{changevalue('1')} } className="vuelos_sections">
                 {" "}
                 img
                 <p> 1 objeto personal</p>
                 <h4> 500$ </h4>
-              </section>
-              <section className="vuelos_sections">
+              </button>
+              <button  onClick={ ()=>{changevalue('2')} } className="vuelos_sections">
                 {" "}
                 img
                 <p> equipaje de mano</p>
                 <h4> 700$ </h4>
-              </section>
-              <section className="vuelos_sections">
+              </button>
+              <button onClick={ ()=>{changevalue('3')}  }  className="vuelos_sections">
                 {" "}
                 img
                 <p> Equipaje 25Kg</p>
                 <h4> 1000$ </h4>
-              </section>
+              </button>
             </div>
             
             </>
@@ -76,7 +117,7 @@ const SelectVuelos = () => {
         <section className="aside_section1"> 
 
         {<p className="aside_p"> pasajeros <strong> {vueloIda.pasajeros} Adulto</strong></p>}
-        <p className="aside_p"> Vuelo de salida</p>
+        <p className="aside_p"> Vuelo de salida </p>
 
         {
           <span className="aside_span2">
@@ -84,27 +125,42 @@ const SelectVuelos = () => {
             <h4> {vueloIda.origen}</h4>___<h4>{vueloIda.destino}</h4>
           </span>
           
-        }{flyes.map((item, index) => (
+        }
            
 
             
-              <span  key={index} className="aside_span3">
+              <span  className="aside_span3">
                 {" "}
-                <p>
+                
+                  <>
+
+                  <p >
                   {" "}
-                   {item.departureTime} 
+                   {vuelos.departureTime} pm
                 </p>
-                <p>
+                <p >
                   {" "}
-                  {item.arriveTime}
+                  {vuelos.departureTime+2}pm
                 </p>
+                  </>
+          
+          
+
+
+
+
+                
               </span>
               
-          ))}
+          
         {<h6> {vueloIda.salidaDate} </h6>}
         </section>
         <section className="aside_section2" >
-        sss
+       <p> Tarifa base: {vuelos.costo} </p>
+       <p>Costo Maletas:{costo} </p> 
+       <p> Monto a pagar {(vuelos.costo + costo)*Number(vueloIda.pasajeros)} </p>
+       
+       <button onClick={()=>{goAsientos()} }>Seleccionar asientos </button>
 
         </section>
       </aside>
