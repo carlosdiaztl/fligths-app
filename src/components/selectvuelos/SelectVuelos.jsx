@@ -3,8 +3,11 @@ import "../selectvuelos/style.scss";
 import "../main/form/Form2";
 import { searchFligths } from "../../services/getflight";
 import "../selectvuelos/style.scss";
+import { useNavigate } from "react-router-dom";
+import Asiento from "../asientos/Asiento";
 
 const SelectVuelos = () => {
+  const navigate = useNavigate()
 
   const [vuelos, setVuelo] = useState({}||vuelos)
   const [costo, setcosto] = useState(0)
@@ -50,6 +53,17 @@ const SelectVuelos = () => {
     console.log('borrando session');
     console.log('cargar session');
     console.log('cargar yendo a select asientos');
+    console.log(vuelos);
+    const vueloCompleto={
+      ...vuelos,
+      costofinal:precioFinal
+    }
+    sessionStorage.clear()
+    console.log(vueloCompleto);
+    sessionStorage.setItem('ticket', JSON.stringify(vueloCompleto));
+    navigate('asiento')
+
+    
     
     
   }else{
