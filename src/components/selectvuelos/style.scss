@@ -47,9 +47,9 @@ $myFont: roboto;
     height: 100%;
     &_section{
         width: 55%;
-        background-color: aqua;
         display: flex;
         align-items: center;
+       
     }
     &_span{
         display: flex;
@@ -61,6 +61,15 @@ $myFont: roboto;
     &_h4{
         margin-top: 20px;
     }
+    &_sections{
+        background-color: transparent;
+        border: none;
+
+    }
+    &_sections:hover{
+        background-color: darkmagenta;
+    }
+    
     &_container{
         padding-right: 20px;
         border-radius: 10px;
@@ -74,10 +83,13 @@ $myFont: roboto;
             border-radius: 10px;
             height: 100%;
             max-height: 100px;
+            background-color: white;
             display: flex;
-            background-color:rgba(255, 255, 255, 0.678);
             justify-content: space-around;
         }
     }
    
+}
+.dollar{
+    width: 15px;
 }

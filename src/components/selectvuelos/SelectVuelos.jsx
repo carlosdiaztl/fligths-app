@@ -5,6 +5,10 @@ import { searchFligths } from "../../services/getflight";
 import "../selectvuelos/style.scss";
 import { useNavigate } from "react-router-dom";
 import Asiento from "../asientos/Asiento";
+import Swal from "sweetalert2";
+import imgMaleta from '../../icons/radio-button-checked/briefcase.svg'
+import dollar from '../../icons/radio-button-checked/dollar-sign.svg'
+
 
 const SelectVuelos = () => {
   const navigate = useNavigate()
@@ -56,9 +60,15 @@ const SelectVuelos = () => {
     console.log(vuelos);
     const vueloCompleto={
       ...vuelos,
+      asientos:Number(vueloIda.pasajeros),
       costofinal:precioFinal
     }
-    sessionStorage.clear()
+    Swal.fire(
+      'datos ',
+      `Origen :${vueloCompleto.origen} , Destino: ${vueloCompleto.destino}, Pasajeros: ${vueloCompleto.asientos} Ida: ${vueloCompleto.departureTime}PM , Regreso:  ${vueloCompleto.departureTime +2} PM , Costo: ${vueloCompleto.costofinal} $      `,
+      'info'
+    )
+    
     console.log(vueloCompleto);
     sessionStorage.setItem('ticket', JSON.stringify(vueloCompleto));
     navigate('asiento')
@@ -67,6 +77,11 @@ const SelectVuelos = () => {
     
     
   }else{
+    Swal.fire(
+      'Por favor',
+      'Selecciona un vuelo ',
+      'info'
+    )
     console.log('selecione vuelo y maleta');
   }
  
@@ -90,7 +105,7 @@ const SelectVuelos = () => {
           {flyes.map((item, index) => (
             <>
 
-            <div   >
+            <div >
               <section onClick={()=>{getVuelo(item)} } key={index} className="vuelos_section">
                 {" "}
                 <p>
@@ -105,21 +120,21 @@ const SelectVuelos = () => {
               </section>
               <button onClick={()=>{changevalue('1')} } className="vuelos_sections">
                 {" "}
-                img
+                <img  src={imgMaleta} />
                 <p> 1 objeto personal</p>
-                <h4> 500$ </h4>
+                <h4> 500  <img className="dollar" src={dollar} /> </h4>
               </button>
               <button  onClick={ ()=>{changevalue('2')} } className="vuelos_sections">
                 {" "}
-                img
+                <img  src={imgMaleta} />
                 <p> equipaje de mano</p>
-                <h4> 700$ </h4>
+                <h4> 700<img className="dollar" src={dollar} />   </h4>
               </button>
               <button onClick={ ()=>{changevalue('3')}  }  className="vuelos_sections">
                 {" "}
-                img
+                <img  src={imgMaleta} />
                 <p> Equipaje 25Kg</p>
-                <h4> 1000$ </h4>
+                <h4> 1000<img className="dollar" src={dollar} /> </h4>
               </button>
             </div>
             
@@ -170,9 +185,9 @@ const SelectVuelos = () => {
         {<h6> {vueloIda.salidaDate} </h6>}
         </section>
         <section className="aside_section2" >
-       <p> Tarifa base: {vuelos.costo} </p>
-       <p>Costo Maletas:{costo} </p> 
-       <p> Monto a pagar {(vuelos.costo + costo)*Number(vueloIda.pasajeros)} </p>
+       <p> Tarifa base: {vuelos.costo} <img className="dollar" src={dollar} />  </p>
+       <p>Costo Maletas:{costo} <img className="dollar" src={dollar} />  </p> 
+       <p> Monto a pagar {(vuelos.costo + costo)*Number(vueloIda.pasajeros)}  <img className="dollar" src={dollar} /> </p>
        
        <button onClick={()=>{goAsientos()} }>Seleccionar asientos </button>
 
