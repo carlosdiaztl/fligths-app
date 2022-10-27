@@ -1,14 +1,24 @@
+.mainseat{
+    display: flex;
+}
+
+
 .div{display: flex;
-    gap: 50px
-    ;
+  
+   justify-content: space-around;
+   width: 65%;
+   height: 80vh;
+   
     &jet{
+        width: 10%;
+        height: 100%;
         gap: 5px
         ;
         display: flex;
         flex-direction: column;
+       
         button{
-            width: 200px;
-            height: 100px;
+            height: 100%;
         }
         button:hover{
             background-color: purple;

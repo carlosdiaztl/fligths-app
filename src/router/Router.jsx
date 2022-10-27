@@ -5,6 +5,7 @@ import {
     Route,
 } from "react-router-dom";
 import Asiento from "../components/asientos/Asiento";
+import ConfirmIda from "../components/ConfirmIDA/ConfirmIda";
 import Home from "../components/home/Home";
 import SelectVuelos from "../components/selectvuelos/SelectVuelos";
 import Vueloidaregresp from "../components/selectvuelos/Vueloidaregresp";
@@ -22,6 +23,7 @@ const Router = () => {
                 <Route path="vuelos" element={<SelectVuelos/>} />
                 <Route path="vuelosidaconvuelta"  element={<Vueloidaregresp/> } />
                 <Route path="/vuelos/asiento"  element={<Asiento/> } />
+                <Route path="/vuelos/asiento/confirm"  element={<ConfirmIda/> } />
             </Routes>
         </BrowserRouter>
     )

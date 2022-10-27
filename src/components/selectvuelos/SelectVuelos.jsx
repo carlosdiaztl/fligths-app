@@ -60,12 +60,12 @@ const SelectVuelos = () => {
     console.log(vuelos);
     const vueloCompleto={
       ...vuelos,
-      asientos:Number(vueloIda.pasajeros),
+      sillasCompradas:Number(vueloIda.pasajeros),
       costofinal:precioFinal
     }
     Swal.fire(
       'datos ',
-      `Origen :${vueloCompleto.origen} , Destino: ${vueloCompleto.destino}, Pasajeros: ${vueloCompleto.asientos} Ida: ${vueloCompleto.departureTime}PM , Regreso:  ${vueloCompleto.departureTime +2} PM , Costo: ${vueloCompleto.costofinal} $      `,
+      `Origen :${vueloCompleto.origen} , Destino: ${vueloCompleto.destino}, Pasajeros: ${vueloCompleto.sillasCompradas} Ida: ${vueloCompleto.departureTime}PM , Regreso:  ${vueloCompleto.departureTime +2} PM , Costo: ${vueloCompleto.costofinal} $      `,
       'info'
     )
     
