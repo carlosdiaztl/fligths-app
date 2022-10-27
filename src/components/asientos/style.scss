@@ -1,5 +1,24 @@
 .mainseat{
     display: flex;
+    &_datos{
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        gap: 50px;
+    }
+    &_datosvuelo{
+        display: flex;
+        flex-direction: column;
+        background-color: burlywood;
+        gap: 10px;
+    }
+    &_spancosto{
+        background-color: aqua;
+        display: flex;
+        flex-direction: column;
+        gap:5px
+
+    }
 }
 
 
