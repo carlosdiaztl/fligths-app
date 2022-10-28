@@ -3,11 +3,12 @@ import { useForm } from "react-hook-form";
 import '../ConfirmIDA/style.scss'
 import Swal from "sweetalert2";
 import { Outlet, useNavigate } from "react-router-dom";
+import { SendBuy, SendFligth } from "../../services/sendBuy";
 const ConfirmIda = () => {
   const navigate = useNavigate();
   const compra = JSON.parse(sessionStorage.getItem("vuelocomprado"));
   
-  const [isTi, setIsTi] = useState(false);
+  // const [isTi, setIsTi] = useState(false);
   const [isCC, setIsCC] = useState(false);
 
   const {
@@ -27,24 +28,62 @@ const ConfirmIda = () => {
       //PETICION A LA API
       setValue('age', 18)
   }, [])
+ 
 
-  const onSubmit = (data) => {
-      console.log(data);
-      console.log(compra);
+  const onSubmit = async(data) => {
+      
+     const {sillas}=compra
+    const compraAenviar={
+      costo:compra.costofinal,
+      idVuelo:compra.id,
+      origen:compra.origen,
+      destino:compra.destino,
+      sillas:compra.sillas,
+      cliente:data.name,
+      telefono:data.phone,
+      idPerson:data.identificationNumber,
+      typeId:data.identificationType
+    }
+    console.log(compraAenviar);
+    const actualziarVueloInfo={
+      salidaDate: compra.salidaDate,
+      id: compra.id,
+      asientos:(compra.asientos-compra.sillasCompradas),
+      departureTime: compra.departureTime,
+      origen: compra.origen,
+      destino: compra.destino,
+      costo:compra.costo
+
+    }
+  //  await  SendBuy(compraAenviar)
+   //actualizar info sin permisos
+   await  SendFligth(actualziarVueloInfo,compra.id,)
+    console.log(actualziarVueloInfo);
+      Swal.fire(
+        `GRACIAS POR TU COMPRA ${data.name} `,
+        `Origen :${compra.origen} , Destino: ${compra.destino},Pasajeros: ${compra.sillasCompradas
+        } Asientos: ${sillas} Ida: ${compra.departureTime}PM , Regreso:  ${compra.departureTime +2} PM , Costo: ${compra.costofinal} $      `,
+        'info'
+      )
+      sessionStorage.clear()
+
       navigate('/')
+
+
   };
   const nuevaCompra=()=>{
+    sessionStorage.clear()
  navigate('/')
   }
  
 
-  useEffect(() => {
-      if (watch('identificationType') === 'TI') {
-          setIsTi(true);
-      }else {
-          setIsTi(false);
-      }
-  }, [watch('identificationType')])
+  // useEffect(() => {
+  //     if (watch('identificationType') === 'TI') {
+  //         setIsTi(true);
+  //     }else {
+  //         setIsTi(false);
+  //     }
+  // }, [watch('identificationType')])
 
   useEffect(() => {
     if (watch('identificationType') === 'CC') {
@@ -128,18 +167,18 @@ const ConfirmIda = () => {
               <input
                   type="radio"
                   value="CC"
-                  {...register('identificationType')}
+                  {...register('identificationType',{ required: true })}
               />
               Cédula de Ciudadanía
           </label>
-          <label>
+          {/* <label>
               <input
                   type="radio"
                   value="TI"
                   {...register('identificationType')}
               />
               Tarjeta de Identidad
-          </label>
+          </label> */}
           {/* <label>
               <input
                   type="radio"
@@ -148,7 +187,7 @@ const ConfirmIda = () => {
               />
               NIT
           </label> */}
-          {
+          {/* {
               isTi && (
                   <label>
                       Número de TI:
@@ -160,7 +199,7 @@ const ConfirmIda = () => {
                       {errors.identificationNumber && <span>{errors.identificationNumber.message}</span>}
                   </label>
               )
-          }
+          } */}
           {
               isCC && (
                   <label>
@@ -168,7 +207,7 @@ const ConfirmIda = () => {
                       <input
                           type="number"
                           placeholder="Escriba su número de CC"
-                          {...register("identificationNumber")}
+                          {...register("identificationNumber",{ required: true })}
                       />
                       {errors.identificationNumber && <span>{errors.identificationNumber.message}</span>}
                   </label>
