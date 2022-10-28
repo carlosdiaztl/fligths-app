@@ -22,4 +22,15 @@ export const SendBuy = async (Buy = {}) => {
   }
 }
 
+// const status = ({
+//     method: 'PUT',
+//     url: `${URL}/${endpoint}`,
+//     timeout: 3000,
+//     data: obj,
+//     headers: {
+//         "Access-Control-Allow-Origin": "*",
+//         "Content-Type": "application/json",
+//         Accept: "application/json",
+//     },
+// });
 
