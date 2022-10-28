@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import '../ConfirmIDA/style.scss'
+import Swal from "sweetalert2";
+import { Outlet, useNavigate } from "react-router-dom";
 const ConfirmIda = () => {
+  const navigate = useNavigate();
+  const compra = JSON.parse(sessionStorage.getItem("vuelocomprado"));
+  
   const [isTi, setIsTi] = useState(false);
+  const [isCC, setIsCC] = useState(false);
 
   const {
       register,
@@ -12,7 +18,7 @@ const ConfirmIda = () => {
       setValue
   } = useForm({
       defaultValues: {
-          name: 'luis',
+          name: '',
           identificationType: ''
       }
   });
@@ -24,7 +30,13 @@ const ConfirmIda = () => {
 
   const onSubmit = (data) => {
       console.log(data);
+      console.log(compra);
+      navigate('/')
   };
+  const nuevaCompra=()=>{
+ navigate('/')
+  }
+ 
 
   useEffect(() => {
       if (watch('identificationType') === 'TI') {
@@ -33,6 +45,14 @@ const ConfirmIda = () => {
           setIsTi(false);
       }
   }, [watch('identificationType')])
+
+  useEffect(() => {
+    if (watch('identificationType') === 'CC') {
+        setIsCC(true);
+    }else {
+        setIsCC(false);
+    }
+}, [watch('identificationType')])
 
 
   // const ValidatePass = (value) => {
@@ -54,6 +74,7 @@ const ConfirmIda = () => {
 
   return (
     <div className="confirm">
+    <h1> LLene los datos del pagador</h1>
     <form onSubmit={handleSubmit(onSubmit)}>
           <label>
               Nombre:
@@ -119,14 +140,14 @@ const ConfirmIda = () => {
               />
               Tarjeta de Identidad
           </label>
-          <label>
+          {/* <label>
               <input
                   type="radio"
                   value="NIT"
                   {...register('identificationType')}
               />
               NIT
-          </label>
+          </label> */}
           {
               isTi && (
                   <label>
@@ -140,9 +161,24 @@ const ConfirmIda = () => {
                   </label>
               )
           }
+          {
+              isCC && (
+                  <label>
+                      Número de CC:
+                      <input
+                          type="number"
+                          placeholder="Escriba su número de CC"
+                          {...register("identificationNumber")}
+                      />
+                      {errors.identificationNumber && <span>{errors.identificationNumber.message}</span>}
+                  </label>
+              )
+          }
 
           <button type="submit">Guardar</button>
+          <button onClick={nuevaCompra} >Nueva compra</button>
       </form>
+      
      </div>
   );
 };
