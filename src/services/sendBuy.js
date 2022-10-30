@@ -1,13 +1,15 @@
 import axios from "axios";
 const URL_API = "https://fligths-back.herokuapp.com/vuelos";
-export const SendFligth = async (flight ,id) => {
- 
+export const SendFligth = async (flight ) => {
+ const url=`${URL_API}/`
+ console.log(url);
   try {
-    const { data } = await axios.put(`${URL_API}/${id} `,flight)
-    return data;
+    const { data } = await axios.post(url,flight)
+   console.log(data)
+   console.log(flight.id);
   } catch (error) {
     console.log(error);
-    return error;
+    // return error;
   }
 }
 const URL_COMPRAS ="https://fligths-back.herokuapp.com/vuelosconfirmados"

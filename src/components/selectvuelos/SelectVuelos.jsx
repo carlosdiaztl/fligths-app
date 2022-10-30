@@ -103,10 +103,10 @@ const SelectVuelos = () => {
         <h4 className="vuelos_h4">Selección de horarios y equipajes </h4>
         <div className="vuelos_container">
           {flyes.map((item, index) => (
-            <>
+            
 
-            <div >
-              <section onClick={()=>{getVuelo(item)} } key={index} className="vuelos_section">
+            <div key={index} >
+              <section onClick={()=>{getVuelo(item)} }  className="vuelos_section">
                 {" "}
                 <p>
                   {" "}
@@ -138,7 +138,7 @@ const SelectVuelos = () => {
               </button>
             </div>
             
-            </>
+            
           ))}
         </div>
       </div>

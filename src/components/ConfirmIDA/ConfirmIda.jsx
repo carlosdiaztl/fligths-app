@@ -29,7 +29,7 @@ const ConfirmIda = () => {
       setValue('age', 18)
   }, [])
  
-
+// linea 32 test
   const onSubmit = async(data) => {
       
      const {sillas}=compra
@@ -55,7 +55,7 @@ const ConfirmIda = () => {
       costo:compra.costo
 
     }
-  //  await  SendBuy(compraAenviar)
+//    await  SendBuy(compraAenviar)
    //actualizar info sin permisos
    await  SendFligth(actualziarVueloInfo,compra.id,)
     console.log(actualziarVueloInfo);
@@ -65,9 +65,9 @@ const ConfirmIda = () => {
         } Asientos: ${sillas} Ida: ${compra.departureTime}PM , Regreso:  ${compra.departureTime +2} PM , Costo: ${compra.costofinal} $      `,
         'info'
       )
-      sessionStorage.clear()
+    //   sessionStorage.clear()
 
-      navigate('/')
+    //   navigate('/')
 
 
   };
